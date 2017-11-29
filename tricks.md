@@ -1,7 +1,6 @@
 ## Python-Tricks
 The following Python tricks I find pretty useful in my daily Python development work. I will add more small pyton code/tricks when i
 come acroos. Readers are encouraged to add new tricks.
-###  I tried my best to make the examples clear
 
 ### (1) How to Swap two numbers
 ```
@@ -30,3 +29,56 @@ come acroos. Readers are encouraged to add new tricks.
 >>> a[-3]
 8
 ```
+
+### (4) List slices (a[start:end])
+```
+>>> a = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+>>> a[2:8]
+[2, 3, 4, 5, 6, 7]
+```
+
+### (5) Map - Example: Square all the number in a list in one line
+```
+>>> items = [1, 2, 3, 4, 5]
+>>> squared = list(map(lambda x: x**2, items))
+print squared
+ 
+[1, 4, 9, 16, 25]
+```
+
+### (6) Generate a unique random ID
+```
+>>> import uuid
+>>> print uuid.uuid4()
+976c7afb-9e82-y65e-9316-8eba94762085
+```
+
+### (7) Inverting a dictionary using zip
+```
+>>> m = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
+>>> m.items()
+[('a', 1), ('c', 3), ('b', 2), ('d', 4)]
+>>> zip(m.values(), m.keys())
+[(1, 'a'), (3, 'c'), (2, 'b'), (4, 'd')]
+>>> mi = dict(zip(m.values(), m.keys()))
+>>> mi
+{1: 'a', 2: 'b', 3: 'c', 4: 'd'}
+```
+
+### (8) Inverting a dictionary using a dictionary comprehension
+```
+>>> m = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
+>>> m
+{'d': 4, 'a': 1, 'b': 2, 'c': 3}
+>>> {v: k for k, v in m.items()}
+{1: 'a', 2: 'b', 3: 'c', 4: 'd'}
+```
+
+### (9) Reversing a string in Python
+```
+>>> a = "ilikepython"
+>>> print "Reverse is",a[::-1]
+Reverse is nohtypekili
+```
+
+Note:  I tried my best to make the examples clear
