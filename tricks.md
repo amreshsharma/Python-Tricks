@@ -81,4 +81,34 @@ print squared
 Reverse is nohtypekili
 ```
 
+### (10) Functions like sum() accept generators / use the right variable type
+
+```
+sum = 0
+for i in range(1300):
+    if i % 3 == 0 or i % 5 == 0:
+        sum += i
+print(sum)
+```
+This could be done shorter and efficiently: 
+```
+>>> sum(i for i in range(1300) if i % 3 == 0 or i % 5 == 0)
+394118
+```
+
+### (11) tricks with Zip
+
+Transposing a matrix:
+```
+>>> l = [[1, 2, 3], [4, 5, 6]]
+>>> zip(*l)
+[(1, 4), (2, 5), (3, 6)]
+```
+Dividing a list into groups of n:
+```
+>>> l = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8]
+>>> zip(*[iter(l)] * 3)
+[(3, 1, 4), (1, 5, 9), (2, 6, 5), (3, 5, 8)]
+```
+
 Note:  I tried my best to make the examples clear
